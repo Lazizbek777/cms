@@ -1,0 +1,70 @@
+<?php
+
+namespace Breadcrumbs\Widget;
+
+use Application\Widget\AbstractWidget;
+use Breadcrumbs\Model\Breadcrumbs;
+use Publication\Model\Type;
+use Products\Model\Category;
+use Tours\Model\Tcategory;
+
+class BreadcrumbsWidget extends AbstractWidget
+{
+
+    public function breadcrumbs($param = null, $type = null, $product = null)
+    {
+    	$home = $this->helper->translate('Home');
+        $path = array_filter(explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
+        $base = $this->helper->currentUrl(constant('LANG'));
+        $breadcrumbs = Array("<li property='itemListElement' typeof='ListItem'><a href=\"$base\" property='item' typeof='WebPage'><span property='name'>$home</span></a><meta property='position' content='1'></li>");
+        $last = end(array_keys($path));        
+        foreach ($path AS $x => $crumb) {            
+            if(LANG != $crumb){ 
+            	$current_title = array_filter(explode('|', $this->helper->title()->get())); 
+	            if ($x != $last){                   
+	            	if($type)
+            			$url = $this->helper->langUrl(array('for'=>$param, $type=>$crumb));
+
+                    if($crumb == 'portfolio'){
+                        $url = $this->helper->langUrl(array('for'=>$param));
+                        $title = $this->helper->translate('Portfolio'); 
+                    }
+                    else if($crumb == 'products'){
+                        $url = $this->helper->langUrl(array('for'=> 'product-category'));
+                        $title = $this->helper->translate('Products'); 
+                    }
+                    else if($crumb == 'tours'){
+                        $url = $this->helper->langUrl(array('for'=> 'tour-category'));
+                        $title = $this->helper->translate('Tours'); 
+                    }
+                    else{
+                		$publication_cat_model = Type::findFirst("slug = '".$crumb."'");
+                        $products_cat_model = Category::findFirst("slug = '".$crumb."'");
+                		$tours_cat_model = Tcategory::findFirst("slug = '".$crumb."'");
+                		
+                		if($publication_cat_model)
+                			$title = $publication_cat_model->getTitle();
+    		            
+    		            if ($products_cat_model)
+    		            	$title = $products_cat_model->getTitle();
+
+                        if ($tours_cat_model)
+                            $title = $tours_cat_model->getTitle();
+                    }    
+                    $x = $x + 1;
+            		$breadcrumbs[] = "<li property='itemListElement' typeof='ListItem'><a href=\"$url\" property='item' typeof='WebPage'><span property='name'>$title</span></a><meta property='position' content='$x'></li>";
+            		
+	            } else {
+                    $x = $x + 1;
+	                $breadcrumbs[] = "<li property='itemListElement' typeof='ListItem' class='active'><span property='name'>" .$current_title[0]. "</span><meta property='position' content='$x'></li>";
+	            }
+            }
+            
+        }
+       
+        $breadcrumb = '<ol vocab="http://schema.org/" typeof="BreadcrumbList" class="breadcrumb">'.implode($breadcrumbs).'</ol>';          
+
+        $this->widgetPartial('breadcrumbs', ['breadcrumbs' => $breadcrumb]);
+    }
+
+} 
