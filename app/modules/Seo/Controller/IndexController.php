@@ -46,16 +46,6 @@ class IndexController extends Controller
                         'category' => $model->getCategorySlug(),
                         'slug' => $model->getSlug()], $lang);
                 }
-            ],[
-                'class' => 'Tours',
-                'model' => 'Tours',
-                'where' => "", 
-                'getLink' => function($model, $lang){
-                    return $this->langUrlCustom([
-                        'for' => 'tour',
-                        'category' => $model->getCategorySlug(),
-                        'slug' => $model->getSlug()], $lang);
-                }
             ]
         ];
     }

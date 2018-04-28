@@ -135,12 +135,18 @@ class AdminController extends Controller
                         return $this->flash->error($this->helper->at('Only allow image formats jpg, jpeg, png, bmp'));
                     }
 
-                    $hash = $model->getId().'.'.$file->getExtension();
-                    $currentPath = ROOT.'/uploads/slider/'.$hash;
-                    $img = substr($currentPath, strpos($currentPath, 'uploads'));
-                    $file->moveTo($currentPath);
+                    $imageFilter = new \Image\Storage([
+                        'id'   => $model->getId(),
+                        'type' => 'banner',
+                    ]);
+                    $imageFilter->remove();
 
-                    $model->setBanner($img);
+                    
+                    $image = new \Phalcon\Image\Adapter\GD($file->getTempName());  
+                    
+                    $image->save($imageFilter->originalAbsPath());
+
+                    $model->setBanner($imageFilter->originalRelPath());
                     $model->update();
 
                     $this->flash->success($this->helper->at('Photo added'));

@@ -148,7 +148,7 @@ class Category extends Model
                     }
                 }
             }
-            $cache->save($key, $list, 0);
+            $cache->save($key, $list, 1);
         }
 
         return $list;

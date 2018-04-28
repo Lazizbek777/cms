@@ -148,9 +148,5 @@ return array(
     'Do you really want delete this menu?' => 'Вы уверены что хотите удалить этот меню?',
     'Menu has been success saved' => 'Меню была успешно сохранена',
     'Disable' => 'Отключить',
-    'Activeted' => 'Активировать',
-    'Poll' => 'Опрос',
-    'Adding poll' => 'Добавить опрос',
-    'Editing poll' => 'Изменить опрос',
-    'Questions' => 'Вопросы',
+    'Activeted' => 'Активировать'
 );

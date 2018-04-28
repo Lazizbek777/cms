@@ -29,7 +29,6 @@
     <script src="/vendor/noty/packaged/jquery.noty.packaged.min.js"></script>
     <script src="/vendor/jquery.filer/js/jquery.filer.min.js"></script>
     <script src="/assets/admin/js/admin.js"></script>
-    <script src="/assets/admin/js/url_slug.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

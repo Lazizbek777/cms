@@ -24,9 +24,11 @@ final class PagesList implements \Phalcon\Filter\UserFilterInterface
             $data[] = array(
                 'pageId' => $page->getId(),
                 'title' => $page->getTitle(),
-                'slug' => $page->getSlug(),               
+                'slug' => $page->getSlug(),
+                'source' => $page->getSource(),
                 'metaTitle' => $page->getMetaTitle(),
-                'metaDescription' => $page->getMetaDescription(),                
+                'metaDescription' => $page->getMetaDescription(),
+                'metaKeywords' => $page->getMetaKeywords(),
                 'content' => $page->getText(),
                 'createdAt' => $page->getCreatedAt(),
                 'updatedAt' => $page->getUpdatedAt(),

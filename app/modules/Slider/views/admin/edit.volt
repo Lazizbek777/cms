@@ -36,25 +36,3 @@
         }
     });
 </script>
-
-<script type="text/javascript" src="{{ url.get() }}vendor/tinymce/tinymce.min.js"></script>
-<script type="text/javascript">
-  tinymce.init({ selector:'#text',
-  language: 'ru', 
-  height: 500,
-  plugins: [
-    "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
-    "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking responsivefilemanager",
-    "table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern"
-  ],
-
-  toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
-  toolbar2: "cut copy paste | bullist numlist | blockquote | link unlink | responsivefilemanager image media | code | forecolor backcolor | table | subscript superscript",
-
-  menubar: false,
-  image_advtab: true ,
-  external_filemanager_path:"/vendor/responsive_filemanager/filemanager/",
-  filemanager_title:"Responsive Filemanager" ,
-  external_plugins: { "filemanager" : "/vendor/responsive_filemanager/filemanager/plugin.min.js"},
-  toolbar_items_size: 'small'});
-</script>

@@ -64,11 +64,8 @@ abstract class Form extends \Phalcon\Forms\Form
                     $html = $this->renderImages($element);
                     break;                    
 
-                case $element instanceof File:
-                    $html .= '<div class="inline field">';
-                    $html .= $this->makeLabel($element);
-                    $html .= $element;
-                    $html .= '</div>';
+               case $element instanceof File:
+                    $html = $this->renderFiles($element);
                     break;
 
                 default:
@@ -107,6 +104,42 @@ abstract class Form extends \Phalcon\Forms\Form
      * @param Image $element
      * @return string $html
      */
+
+    private function renderFiles($element)
+    {
+        $attributes = $element->getAttributes();
+
+        $html = '<div class="form-group">';
+
+        if ($element->getLabel()) {
+            $html .= '<label>' . $element->getLabel() . '</label>';
+        }
+        
+        $html .= '<br>';
+       
+        $html .= '<div class="fileinput fileinput-new ui action input" data-provides="fileinput">';
+
+        if ($element->getValue()) {
+            $url = $this->getDI()->get('url');
+            $html .= '<label for="amount" class="ui label" style="margin-right:-4px;"><i class="file icon"></i></label><span data-trigger="fileinput" class="fileinput-filename" style="border:1px solid #e8e8e8;padding:5px 15px;min-width:300px;">'.$element->getValue().'</span>';
+        } else{
+            $html .= '<label for="amount" class="ui label fileinput-exists" style="margin-right:-4px;"><i class="file icon"></i></label><span data-trigger="fileinput" class="fileinput-filename" style="border:1px solid #e8e8e8;padding:5px 15px;min-width:300px;"></span>';
+        }
+
+        $html .= '<span class="ui button btn-file">
+                    <span class="fileinput-new">Select file</span>
+                    <span class="fileinput-exists">Change</span>
+                    <input type="file" name="'.$element->getName() . '" accept="'.$attributes['accept'].'">
+                </span>
+                <a href="#" class="ui button red" data-dismiss="fileinput">Delete</a>
+                </div>';
+        if ($element->getValue()) {       
+            $html .= '<p><a href="' . $url->path() . $element->getValue() . '" class="ui grey button" target="_blank">Посмотреть файл</a></p>';
+        }
+        $html .= '</div>';
+        return $html;
+    }
+
     private function renderImage($element)
     {
         $html = '<div class="form-group">';
@@ -136,8 +169,8 @@ abstract class Form extends \Phalcon\Forms\Form
                                 <span class="fileinput-exists">Change</span>
                                 <input type="file" name="'.$element->getName() . '">
                             </span>
-                            <a href="#" class="btn btn-default fileinput-exists"
-                               data-dismiss="fileinput">Remove</a>
+                            <a href="#" class="ui button red"
+                               data-dismiss="fileinput">Delete</a>
                         </div>
                     </div>
                 </div>';

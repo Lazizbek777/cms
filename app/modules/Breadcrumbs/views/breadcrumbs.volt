@@ -1,3 +1,3 @@
-{% if breadcrumbs %}    
+{% if breadcrumbs %}
   {{ breadcrumbs }}
 {% endif %}

@@ -20,11 +20,6 @@ $(function() {
         $(element).after(descriptionElement);
     });   
 
-    $('input#title').keyup(function(){
-      var text = $(this).val();
-      $('input#slug').val(url_slug(text));
-    })
-
     $('input#slug').keyup(function(){
         this.value = this.value.toLowerCase().trim();
         this.value = this.value.replace(/[^\/a-z0-9\s-]/g, ' ');

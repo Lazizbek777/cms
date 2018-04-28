@@ -68,7 +68,7 @@ $config = array(
 	| with start and final /
 	|
 	*/
-	'upload_dir' => '/uploads/files/',
+	'upload_dir' => '/../../uploads/files/',
 	/*
 	|--------------------------------------------------------------------------
 	| relative path from filemanager folder to upload folder

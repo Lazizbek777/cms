@@ -1,12 +1,9 @@
-<header class="header section">
-    {{ partial('main/header') }}
-</header>
 
-<section class="section">	
-	{{content()}}    
-</section>
+{{ partial('main/header') }}
 
-<footer class="footer section">
+{{content()}}    
+
+<footer id="footer">
     {{ partial('main/footer') }}
 </footer>
 

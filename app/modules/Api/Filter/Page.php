@@ -16,8 +16,10 @@ final class Page implements \Phalcon\Filter\UserFilterInterface
         return array(
             'title' => $page->getTitle(),
             'slug' => $page->getSlug(),
+            'source' => $page->getSource(),
             'metaTitle' => $page->getMetaTitle(),
             'metaDescription' => $page->getMetaDescription(),
+            'metaKeywords' => $page->getMetaKeywords(),
             'content' => $page->getText(),
             'createdAt' => $page->getCreatedAt(),
             'updatedAt' => $page->getUpdatedAt(),

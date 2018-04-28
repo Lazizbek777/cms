@@ -1,26 +1,33 @@
-<div class="container relative">
-	<a id="logo" href="{{ helper.currentUrl(constant('LANG')) }}">
-	    <img src="/{{ helper.logo() }}" width="140">
-	</a>	
-
-	{% set languages = helper.languages() %}
-	{% if languages|length > 1 %}
-			<div class="languages">
-	    	<div id="curLang"><span class="title"></span> <span class="caret"></span></div>
-	    	<ul class="language-switcher">
-	        {% for language in languages %}
-	            <li>
-	                {{ helper.langSwitcher(language['iso'], language['name']) }}
-	            </li>
-	        {% endfor %}
-	        </ul>
-	    </div>
-	{% endif %}	
-
-	{{ helper.widget('Search').search() }}
-
-	{{ partial('main/menu') }}
-
+<header id="header">
+	<div class="header_top"><!--header_top-->
+		<div class="container">
+			<div class="row">
+				{{ helper.blockId('header-top') }}
+			</div>
+		</div>
+	</div><!--/header_top-->
 	
+	<div class="header-middle"><!--header-middle-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="logo pull-left">
+						<a href="{{ helper.currentUrl(constant('LANG')) }}"><img src="/assets/images/home/logo.png" alt="" /></a>
+					</div>
+				</div>
+				<div class="col-sm-8">
+					{{ helper.widget('Search').search() }}
+				</div>
+			</div>
+		</div>
+	</div><!--/header-middle-->
 
-</div>
+	<div class="header-bottom"><!--header-bottom-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">{{ partial('main/menu') }}
+				</div>
+			</div>
+		</div>
+	</div><!--/header-bottom-->
+</header>

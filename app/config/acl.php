@@ -5,7 +5,6 @@ return [
     // frontend
     'guest'      => [
         'admin/index'       => '*',
-        'api/page'         => '*',
         'index/index'       => '*',
         'index/error'       => '*',
         'page/index'        => '*',
@@ -20,7 +19,6 @@ return [
         'search/index'      => '*',
         'partner/index'     => '*',
         'faq/index'         => '*',
-        'poll/index'         => '*',
     ], 
     'member'     => [
         'index/index' => '*',
@@ -84,6 +82,5 @@ return [
         'tours/country'      => '*', 
         'partner/admin'      => '*',
         'faq/admin'          => '*',
-        'poll/admin'          => '*',
     ],
 ];

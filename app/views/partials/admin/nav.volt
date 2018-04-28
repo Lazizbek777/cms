@@ -18,55 +18,28 @@
 
 <div class="ui left fixed vertical pointing inverted menu">  
   <div class="item"> 
-    <div class="menu first">
-      <a class="item{{ helper.activeMenu().activeClass('admin-page') }}" href="{{ url.get() }}page/admin">
-          {{ helper.at('Pages') }}
-      </a>
-      <a class="item{{ helper.activeMenu().activeClass('admin-publication') }}"
-         href="{{ url.get() }}publication/admin">
-          {{ helper.at('Publications') }}
-      </a>
-      <a class="item{{ helper.activeMenu().activeClass('admin-widget') }}" href="{{ url.get() }}widget/admin">
-          {{ helper.at('Blocks') }} 
-      </a>
-      <a class="item{{ helper.activeMenu().activeClass('admin-slider') }}" href="{{ url.get() }}slider/admin">
-          {{ helper.at('Slider') }} 
-      </a>
-      <a class="item{{ helper.activeMenu().activeClass('admin-employee') }}" href="{{ url.get() }}employee/admin">
-          {{ helper.at('Employee') }} 
-      </a>
-      <a class="item{{ helper.activeMenu().activeClass('menu') }}" href="{{ url.get() }}menu/admin">
-          {{ helper.at('Menu') }}
-      </a>
-      <a class="item{{ helper.activeMenu().activeClass('admin-portfolio') }}"
-         href="{{ url.get() }}portfolio/admin">
-          {{ helper.at('Portfolio') }}
-      </a>
-      <a class="item{{ helper.activeMenu().activeClass('admin-reviews') }}"
-         href="{{ url.get() }}reviews/admin">
-          {{ helper.at('Reviews') }}
-      </a>
-      <a class="item{{ helper.activeMenu().activeClass('admin-products') }}"
-         href="{{ url.get() }}products/admin">
-          {{ helper.at('Products') }}
-      </a>
-      <a class="item{{ helper.activeMenu().activeClass('admin-tours') }}"
-         href="{{ url.get() }}tours/admin">
-          {{ helper.at('Tours') }}
-      </a>
-      <a class="item{{ helper.activeMenu().activeClass('admin-faq') }}"
-         href="{{ url.get() }}faq/admin">
-          {{ helper.at('Faq') }}
-      </a>
-      <a class="item{{ helper.activeMenu().activeClass('admin-partner') }}"
-         href="{{ url.get() }}partner/admin">
-          {{ helper.at('Partner') }}
-      </a>
-      <a class="item{{ helper.activeMenu().activeClass('admin-poll') }}"
-         href="{{ url.get() }}poll/admin">
-          {{ helper.at('Poll') }}
-      </a>
-    </div>
+      <div class="menu first">
+          <a class="item{{ helper.activeMenu().activeClass('admin-page') }}" href="{{ url.get() }}page/admin">
+              {{ helper.at('Pages') }}
+          </a>
+          <a class="item{{ helper.activeMenu().activeClass('admin-publication') }}"
+             href="{{ url.get() }}publication/admin">
+              {{ helper.at('Publications') }}
+          </a>
+          <a class="item{{ helper.activeMenu().activeClass('admin-widget') }}" href="{{ url.get() }}widget/admin">
+              {{ helper.at('Blocks') }} 
+          </a>
+          <a class="item{{ helper.activeMenu().activeClass('admin-slider') }}" href="{{ url.get() }}slider/admin">
+              {{ helper.at('Slider') }} 
+          </a>
+          <a class="item{{ helper.activeMenu().activeClass('menu') }}" href="{{ url.get() }}menu/admin">
+              {{ helper.at('Menu') }}
+          </a>
+          <a class="item{{ helper.activeMenu().activeClass('admin-products') }}"
+             href="{{ url.get() }}products/admin">
+              {{ helper.at('Products') }}
+          </a>
+      </div>
   </div>
   <div class="item first">
     <div class="header">{{ helper.at('Settings') }} </div>
@@ -100,12 +73,13 @@
       </div>
   </div> 
   <div class="item">
-      <div class="header">SEO </div>
+    <div class="header">SEO </div>
 
-      <div class="menu">
+    <div class="menu">
         <a class="item{{ helper.activeMenu().activeClass('seo-robots') }}" href="{{ url.get() }}seo/robots">
             Robots.txt 
-        </a>                    
-      </div>
-  </div>   
+        </a>
+    </div>
+  </div>  
+    
 </div>

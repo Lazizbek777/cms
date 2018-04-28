@@ -1,3 +1,5 @@
+
+
 {% for item in categories %}
   {% set prod_link = helper.langUrl(['for':'products', 'category': item['slug']]) %}  
 
@@ -11,16 +13,17 @@
 					</a>
 				</h4>
 			</div>
-			<div id="{{ item['id'] }}" class="panel-collapse collapse">
-				<div class="panel-body">
-					<ul>
-					 	{% for children in item['child'] %}
-	    			{% set child_cat_link = helper.langUrl(['for':'products', 'category': children['slug']]) %}
-							<li><a href="{{ child_cat_link }}">{{ children['title'] }}</a> </li>
-						{% endfor %}
-					</ul>
+
+				<div id="{{ item['id'] }}" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul>
+						 	{% for children in item['child'] %}
+		    			{% set child_cat_link = helper.langUrl(['for':'products', 'category': children['slug']]) %}
+								<li><a href="{{ child_cat_link }}">{{ children['title'] }}</a> </li>
+							{% endfor %}
+						</ul>
+					</div>
 				</div>
-			</div>
 		</div>
 	{% endif %}
 

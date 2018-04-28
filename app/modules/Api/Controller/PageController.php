@@ -19,7 +19,7 @@ class PageController extends \Api\Controller\RestController
     public function getAction()
     {
         //get entity from storage
-        $pageId = (int) $this->dispatcher->getParam('pageId');
+        $pageId = (int) $this->request->getQuery('pageId');
         $page = \Page\Model\Page::findFirst($pageId);
         if (!$pageId || !$page) {
             return $this->render(new \Api\Model\Payload(null, sprintf('Page with id: %s was not found.', $pageId)));

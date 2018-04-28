@@ -63,13 +63,6 @@
             }
         }
     });
-
-    $(document).ready(function(){
-        $('input#title').keyup(function(){
-          var text = $(this).val();
-          $('input#slug').val(url_slug(text));  
-        })
-    })
 </script><!--/end ui semantic-->
 
 <link rel="stylesheet" href="{{ url.path() }}vendor/bootstrap/datetimepicker/bootstrap-datetimepicker.min.css">
@@ -88,30 +81,19 @@
   tinymce.init({ selector:'#text',
   language: 'ru', 
   height: 500,
-  relative_urls: false,
   plugins: [
     "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
-    "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media imagetools nonbreaking responsivefilemanager",
+    "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking responsivefilemanager",
     "table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern"
   ],
 
   toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
   toolbar2: "cut copy paste | bullist numlist | blockquote | link unlink | responsivefilemanager image media | code | forecolor backcolor | table | subscript superscript",
-  table_default_attributes: {
-    border: 1,
-    cellpadding: 4
-  },
-  table_default_styles: {
-    borderCollapse: "collapse"
-  },
-  menubar: 'table',
+
+  menubar: false,
   image_advtab: true ,
   external_filemanager_path:"/vendor/responsive_filemanager/filemanager/",
   filemanager_title:"Responsive Filemanager" ,
   external_plugins: { "filemanager" : "/vendor/responsive_filemanager/filemanager/plugin.min.js"},
-  toolbar_items_size: 'small',
-  content_css: [
-    '/vendor/tinymce/codepen.min.css?version=1'
-  ]
-});
+  toolbar_items_size: 'small'});
 </script>

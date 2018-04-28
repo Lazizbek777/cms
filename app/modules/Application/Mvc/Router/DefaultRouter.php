@@ -47,7 +47,7 @@ class DefaultRouter extends Router
                 $this->add($pattern, $paths)->setName(self::ML_PREFIX . $name . '_' . $iso);
             } else {
                 $new_pattern = '/' . $lang['url'] . $pattern;
-                $paths['lang'] = $iso; // будущее значение константы LANG 
+                $paths['lang'] = $iso; // будущее значение константы LANG
                 $this->add($new_pattern, $paths)->setName(self::ML_PREFIX . $name . '_' . $iso);
             }
         }

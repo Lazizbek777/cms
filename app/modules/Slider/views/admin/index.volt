@@ -15,12 +15,13 @@
     </thead>
     <tbody>
     {% for item in entries %}
-        {% set link = url.get() ~ 'slider/admin/edit/' ~ item.getId() %}       
+        {% set link = url.get() ~ 'slider/admin/edit/' ~ item.getId() %}
+        {% set image = helper.image(['id':item.getId(),'type':'banner','width':50]) %}
         <tr>
             <td><a href="{{ link }}?lang={{ constant('LANG') }}" class="mini ui icon button"><i class="icon edit"></i>
                     id = {{ item.getId() }}</a></td>
             <td><a href="{{ link }}?lang={{ constant('LANG') }}">{{ item.getTitle() }}</a></td>
-            <td><a href="{{ link }}?lang={{ constant('LANG') }}"><img src="/{{item.getBanner()}}" width="50" height="auto"></a></td>
+            <td><a href="{{ link }}?lang={{ constant('LANG') }}">{% if image.isExists() %}{{ image.imageHTML() }}{% endif %}</a></td>
             <td>{% if item.getViewTitle() %}<i class="icon checkmark green"></i>{% endif %}</td>
             <td>{{ item.getText() }}</td>
         </tr>

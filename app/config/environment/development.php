@@ -7,8 +7,8 @@ return [
         'adapter'  => 'Mysql',
         'host'     => 'localhost',
         'username' => 'root',
-        'password' => 'root',
-        'dbname'   => 'eskizcms',
+        'password' => '',
+        'dbname'   => 'demo116',
         'charset'  => 'utf8',
     ],
 

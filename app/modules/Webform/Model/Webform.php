@@ -13,8 +13,8 @@ class Webform extends Model
             'host'       => 'smtp.gmail.com',
             'port'       => 465,
             'encryption' => 'ssl',
-            'username'   => 'no-reply@eskiz.uz',
-            'password'   => 'K9i%?#E4mUJX',
+            'username'   => 'mystoreuz@gmail.com',
+            'password'   => 'lmjyuyggrjuedkgb',
             'from'      => [
                 'email' => $from,
                 'name'  => $name

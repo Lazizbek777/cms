@@ -1,67 +1,30 @@
-jQuery(document).ready(function($){
+/*price range*/
+ $('#sl2').slider();
 
-	// loader
-  $(window).load(function(){
-  	setTimeout(function(){
-  	  $('#loader-wrapper').fadeOut();
-  	}, 1000);	      
-  });
+	var RGBChange = function() {
+	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
+	};	
+		
+/*scroll to top*/
+$(document).ready(function(){
+	$(function () {
+		$.scrollUp({
+      scrollName: 'scrollUp', // Element ID
+      scrollDistance: 300, // Distance from top/bottom before showing element (px)
+      scrollFrom: 'top', // 'top' or 'bottom'
+      scrollSpeed: 300, // Speed back to top (ms)
+      easingType: 'linear', // Scroll to top easing (see http://easings.net/)
+      animation: 'fade', // Fade, slide, none
+      animationSpeed: 200, // Animation in speed (ms)
+      scrollTrigger: false, // Set a custom triggering element. Can be an HTML string or jQuery object
+			//scrollTarget: false, // Set a custom target element for scrolling to the top
+      scrollText: '<i class="fa fa-angle-up"></i>', // Text for element, can contain HTML
+      scrollTitle: false, // Set a custom <a> title if required.
+      scrollImg: false, // Set true to use image
+      activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+      zIndex: 2147483647 // Z-Index for the overlay
+		});
+	});
 
-  $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
-		event.preventDefault(); 
-		event.stopPropagation(); 
-		$(this).parent().siblings().removeClass('open');
-		$(this).parent().toggleClass('open');
-	});	
-
-
-  //languages switcher
-  var curLang = $('#curLang');
-  var selection = $('ul.language-switcher');
-  var select = selection.find('li');
-  var langDtc = select.find('span').attr('data-lang');
-  
-
-  curLang.find('span.title').html(select.find('span').text());
-  curLang.addClass(langDtc);
-  selection.find('span').addClass('hide');
-
-  curLang.on('click', function (event) {
-    event.preventDefault();
-    if (curLang.hasClass('active')) {
-      curLang.removeClass('active');
-      $(this).next().stop().slideUp(200);
-    } else {
-      curLang.addClass('active');          
-      $(this).next().stop().slideDown(200);
-    }      
-  });
-
-  select.on('click', function (event) {
-    curLang.trigger('click');
-  }); 
-
-  $('.fancybox').fancybox();
-
-  //Scroll 
-	$(window).scroll(function () {
-    if ($(this).scrollTop() > 100) {
-      $('.scrollTop').fadeIn(); 
-      $('body').addClass('down');
-      $(".header").addClass("fixed");
-    } else {
-      $('.scrollTop').fadeOut();
-      $('body').removeClass('down'); 
-      $(".header").removeClass("fixed");         
-    }
-  });
-
-  $('.scrollTop').click(function () {
-      $("html, body").animate({
-          scrollTop: 0
-      }, 600);
-      return false;
-  });
- 
 
 });

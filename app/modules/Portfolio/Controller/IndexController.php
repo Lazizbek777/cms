@@ -18,14 +18,16 @@ class IndexController extends Controller
         $portfolio = Portfolio::find();
         $category = Category::find($parameters);
 
-    	$settings = Settings::findFirst(1);
+    	$portfolioResult = Portfolio::findFirstBySlug($slug); 
+
+        $settings = Settings::findFirst(1);
         $curLang = $this->helper->currentUrl(LANG);
         $meta_url = $this->helper->base_url().$curLang.'portfolio';
         $meta_image = $this->helper->base_url().'/'.$settings->getLogo();
 
         $this->helper->title()->append($this->helper->translate('Portfolio'));
         $this->helper->meta()->set('title', $this->helper->translate('Portfolio'));
-        $this->helper->meta()->set('description', $this->helper->translate('Portfolio'));  
+        $this->helper->meta()->set('description', $portfolioResult->meta_description);  
         $this->helper->meta()->set('type', 'article');
         $this->helper->meta()->set('site_name', $settings->getSiteName());
         $this->helper->meta()->set('url', $meta_url);
@@ -38,8 +40,7 @@ class IndexController extends Controller
 
     public function viewAction()
     {
-    	$slug = $this->dispatcher->getParam('slug', 'string'); 
-        print_r($slug); die();      
+    	$slug = $this->dispatcher->getParam('slug', 'string');
     	$portfolioResult = Portfolio::findFirstBySlug($slug); 
 
         $settings = Settings::findFirst(1);

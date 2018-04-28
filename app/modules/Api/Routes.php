@@ -7,18 +7,11 @@ class Routes
 
     public function init($router)
     {
-
-        $router->add('/api/page/{pageId:[0-9_-]+}', array(
+        $router->add('/api', array(
             'module'     => 'api',
-            'controller' => 'page',
-            'action'     => 'get',
-        ))->setName('get');
-
-        $router->add('/api/page', array(
-            'module'     => 'api',
-            'controller' => 'page',
-            'action'     => 'list',
-        ))->setName('list');
+            'controller' => 'index',
+            'action'     => 'index',
+        ))->setName('api');
 
         return $router;
     }
