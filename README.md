@@ -1,10 +1,14 @@
 # EskizCMS Beta 0.0.1
-EskizCMS is modular phalcon based CMS developed by Eskiz DevTeam. Demo at http://0000.uz 
+EskizCMS is modular phalcon based CMS developed by Eskiz DevTeam. 
 
-#### DEMO AT
+For demo look at http://0000.uz 
+
+#### ADMIN PANEL
 http://0000.uz/admin
+
 Login: admin
-Password: demo
+
+Password: eskizuz
 
 #### REQUIREMENTS
 1. PHP > 5.6
