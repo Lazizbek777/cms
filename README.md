@@ -1,6 +1,8 @@
 # EskizCMS Beta 0.0.1
 EskizCMS is modular phalcon based CMS developed by Eskiz DevTeam. 
 
+Telegram group at https://t.me/joinchat/B6KEnBCzxaBKSpTGHBeJbA
+
 For demo look at http://0000.uz 
 
 #### ADMIN PANEL
